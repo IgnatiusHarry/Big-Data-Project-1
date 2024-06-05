@@ -12,7 +12,7 @@ The data consists of village-level voting results from Taiwan's 2000 and 2024 pr
 
 **Methodology**
 
-> Data Cleaning and Preparation:_
+_Data Cleaning and Preparation:_
 
 > Combine village-level data files into single dataframes for 2000 and 2024.
 
