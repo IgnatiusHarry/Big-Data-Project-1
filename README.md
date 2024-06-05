@@ -10,6 +10,10 @@ This project aims to analyze changes in Taiwan's political alignment by comparin
 
 The data consists of village-level voting results from Taiwan's 2000 and 2024 presidential elections with 15429 of total observations. The data includes variables such as the number of votes received by the DPP, KMT, and other candidates, the number of valid votes, and the number of voters.
 
+**File Structure**
+
+The raw data for this project is in the present folder as president_2000.zip and president_2004.zip. Then, for R code is called data processing.R. It is best to clone the file structure to your local system to run the code without error.
+
 **Methodology**
 
 _Data Cleaning and Preparation:_
