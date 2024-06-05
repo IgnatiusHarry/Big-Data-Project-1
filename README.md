@@ -13,6 +13,7 @@ This project aims to analyze changes in Taiwan's political alignment by comparin
 Moreover, to analyze changes in political alignment between the two elections, an initial study comparing the partisan characteristics of electoral regions in both elections was conducted. One method of comparison used is the Pearson correlation coefficient. The Pearson correlation coefficient measures the linear correlation between two sets of data, ranging from -1 to 1. A coefficient close to 1 indicates a strong positive correlation, meaning regions that voted for a particular party in 2000 also tended to do so in 2024.
 
 **Data**
+
 The data consists of village-level voting results from Taiwan's 2000 and 2024 presidential elections, comprising 15,429 total observations. The data includes variables such as the number of votes received by the DPP, KMT, and other candidates, the number of valid votes, and the number of voters.
 
 ****Variable Definition:**
