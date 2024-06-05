@@ -10,12 +10,7 @@ library(ggplot2)
 library(corrplot)
 library(PerformanceAnalytics)
 
-### Set Working Directory
-setwd(dirname(rstudioapi::getActiveDocumentContext()$path))
-
-### Section 1: Taiwan Presidential Elections Data Analysis
-
-# 1. Load and combine data for 2000 election
+# I used a loop and use rbind() function to concatenate all district data files from the president_2000 folder into a single dataframe named president_2000_df
 filelist_2000 <- list.files("president_2000")
 president_2000_df <- data.frame()
 for (i in 1:length(filelist_2000)) {
@@ -23,7 +18,8 @@ for (i in 1:length(filelist_2000)) {
   president_2000_df <- rbind(president_2000_df, temp)
 }
 
-# 2. Load and combine data for 2024 election
+# I repeated the process for the president_2024 folder, creating a dataframe 3 named president_2024_df
+
 filelist_2024 <- list.files("president_2024")
 president_2024_df <- data.frame()
 for (i in 1:length(filelist_2024)) {
@@ -31,7 +27,7 @@ for (i in 1:length(filelist_2024)) {
   president_2024_df <- rbind(president_2024_df, temp)
 }
 
-# 3. Aggregate data at the district level
+# I Used group_by() and summarise() to aggregate president_2000_df and president_2024_df at the district level to compute totals for KMT, DPP, other parties, valid votes, and total voters. Store these aggregates in president_district_2000 and president_district_2024, respectively
 president_district_2000 <- president_2000_df %>%
   group_by(county, county_e, district, district_e, district_id) %>%
   summarise(kmt_2000 = sum(kmt),
@@ -48,11 +44,11 @@ president_district_2024 <- president_2024_df %>%
             valid_2024 = sum(valid_vote),
             num_voter_2024 = sum(num_voter))
 
-# 4. Merge aggregated data from both elections
+# Merged president_district_2000 and president_district_2024 into a single dataframe president_2000_2024 for comparative analysis
 president_2000_2024 <- president_district_2000 %>%
   full_join(president_district_2024, by = "district_id")
 
-# 5. Calculate vote share percentages
+# I Calculated the vote share percentage for KMT, DPP, and other parties for both election
 president_2000_2024 <- president_2000_2024 %>%
   mutate(kmt_rate_2000 = kmt_2000 / num_voter_2000,
          kmt_rate_2024 = kmt_2024 / num_voter_2024,
@@ -61,7 +57,7 @@ president_2000_2024 <- president_2000_2024 %>%
          other_rate_2000 = other_2000 / num_voter_2000,
          other_rate_2024 = other_2024 / num_voter_2024)
 
-# 6. Calculate Pearson correlation coefficients
+# Calculated Pearson correlation coefficients
 cor_kmt <- cor(president_2000_2024$kmt_rate_2000, president_2000_2024$kmt_rate_2024)
 cor_dpp <- cor(president_2000_2024$dpp_rate_2000, president_2000_2024$dpp_rate_2024)
 cor_other <- cor(president_2000_2024$other_rate_2000, president_2000_2024$other_rate_2024)
@@ -69,7 +65,7 @@ cor_other <- cor(president_2000_2024$other_rate_2000, president_2000_2024$other_
 # Visualize correlation matrix
 corrplot(cor(president_2000_2024[, c("kmt_rate_2000", "kmt_rate_2024", "dpp_rate_2000", "dpp_rate_2024", "other_rate_2000", "other_rate_2024")]), method="circle")
 
-# 7. Scatter plots of vote share correlations
+# Scatter plots of vote share correlations
 ggplot(president_2000_2024, aes(x = dpp_rate_2000, y = dpp_rate_2024)) +
   geom_point() +
   geom_smooth(method = "lm") +
@@ -91,6 +87,6 @@ ggplot(president_2000_2024, aes(x = other_rate_2000, y = other_rate_2024)) +
   xlab("Other Candidates Vote Share 2000") +
   ylab("Other Candidates Vote Share 2024")
 
-# 8. Analysis and Interpretation
+# Analysis and Interpretation
 # The high correlation in DPP vote shares suggests stability in their support base.
 # The low correlation for KMT and other candidates indicates more volatility and changes in their support over the years.
