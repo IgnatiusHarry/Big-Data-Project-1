@@ -14,7 +14,7 @@ Moreover, to analyze changes in political alignment between the two elections, a
 
 **Data**
 
-The data consists of village-level voting results from Taiwan's 2000 and 2024 presidential elections, comprising 15,429 total observations. The data includes variables such as the number of votes received by the DPP, KMT, and other candidates, the number of valid votes, and the number of voters.
+The data consists of village-level voting results from Taiwan's 2000 and 2024 presidential elections, comprising **15,429** total observations. The data includes variables such as the number of votes received by the DPP, KMT, and other candidates, the number of valid votes, and the number of voters.
 
 **Variable Definition:**
 - county: The Chinese names of cities or counties
