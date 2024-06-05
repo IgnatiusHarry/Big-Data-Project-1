@@ -18,6 +18,7 @@ _Data Cleaning and Preparation:_
 
 > Aggregate data at the district level for both elections.
 
+
 _Data Analysis:_
 
 > Merge the aggregated data from 2000 and 2024.
