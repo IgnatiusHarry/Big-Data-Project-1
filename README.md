@@ -1,4 +1,4 @@
-****Big-Data-Social-Analysis-1****
+****Big Data Social Analysis Project****
 
 Analysis of Taiwan Presidential Elections (2000 vs. 2024)
 
@@ -16,29 +16,18 @@ Moreover, to analyze changes in political alignment between the two elections, a
 
 The data consists of village-level voting results from Taiwan's 2000 and 2024 presidential elections, comprising 15,429 total observations. The data includes variables such as the number of votes received by the DPP, KMT, and other candidates, the number of valid votes, and the number of voters.
 
-****Variable Definition:**
-**
-> county: The Chinese names of cities or counties
-
-> county_e: The English names of cities or counties
-
-> district: The Chinese names of districts or towns
-
-> district_e: The English names of districts or towns
-
-> district_id: The ID number of districts
-
-> li_id: The ID number of villages
-
-> dpp: Votes earned by DPP candidates in the 2000 or 2024 election
-
-> kmt: Votes earned by KMT candidates in the 2000 or 2024 election
-
-> other: Votes earned by third candidates, specifically James Soong in 2000 or Ko Wen-je in 2024
-
-> valid_vote: The number of valid votes in the 2000 or 2024 election
-
-> num_voter: The number of electorates in the 2000 or 2024 election
+**Variable Definition:**
+- county: The Chinese names of cities or counties
+- county_e: The English names of cities or counties
+- district: The Chinese names of districts or towns
+- district_e: The English names of districts or towns
+- district_id: The ID number of districts
+- li_id: The ID number of villages
+- dpp: Votes earned by DPP candidates in the 2000 or 2024 election
+- kmt: Votes earned by KMT candidates in the 2000 or 2024 election
+- other: Votes earned by third candidates, specifically James Soong in 2000 or Ko Wen-je in 2024
+- valid_vote: The number of valid votes in the 2000 or 2024 election
+- num_voter: The number of electorates in the 2000 or 2024 election
 
 ****File Structure****
 
@@ -48,23 +37,19 @@ Please download the files named president_2000.zip and president_2024.zip, then 
 
 
 _Data Aggregation:_
-
-> Combined village-level data into district-level datasets for both elections using rbind(), group_by(), and summarise() functions in R.
+- Combined village-level data into district-level datasets for both elections using rbind(), group_by(), and summarise() functions in R.
 
 _Data Merging:_
-> Merged the aggregated district-level datasets from 2000 and 2024 into a single dataframe for comparative analysis.
+- Merged the aggregated district-level datasets from 2000 and 2024 into a single dataframe for comparative analysis.
 
 _Vote Share Calculation:_
+- Calculated the vote share percentages for KMT, DPP, and other parties for both elections.
 
-> Calculated the vote share percentages for KMT, DPP, and other parties for both elections.
-_
 __Correlation Analysis:_
-
-> Analyzed the Pearson correlation coefficient between the vote shares of corresponding parties across the two elections.
+- Analyzed the Pearson correlation coefficient between the vote shares of corresponding parties across the two elections.
 
 _Data Visualization:_
-
-> Created scatter plots to visualize the correlations between vote shares for KMT, DPP, and other parties in 2000 and 2024.
+- Created scatter plots to visualize the correlations between vote shares for KMT, DPP, and other parties in 2000 and 2024.
 
 **Results**
 
@@ -72,19 +57,19 @@ The results include aggregated vote counts, vote share percentages, Pearson corr
 
 _Correlation Analysis:_
 
-The correlation between DPP vote shares in 2000 and 2024 was high, indicating consistent support in certain regions.
+> The correlation between DPP vote shares in 2000 and 2024 was high, indicating consistent support in certain regions.
 
-The correlation for KMT was lower, suggesting shifts in voter preferences or the impact of third-party candidates.
+> The correlation for KMT was lower, suggesting shifts in voter preferences or the impact of third-party candidates.
 
-The correlation for third-party candidates (Soong in 2000 and Ko in 2024) was low, reflecting different dynamics in each election.
+> The correlation for third-party candidates (Soong in 2000 and Ko in 2024) was low, reflecting different dynamics in each election.
 
 _Visualization:_
 
-Scatter plots showed the relationship between vote shares in 2000 and 2024, highlighting regions with stable political preferences and those with significant changes.
+> Scatter plots showed the relationship between vote shares in 2000 and 2024, highlighting regions with stable political preferences and those with significant changes.
 
 _Insights:_
 
-The high correlation for DPP suggests a strong and stable support base.
+> The high correlation for DPP suggests a strong and stable support base.
 
-The lower correlations for KMT and third-party candidates point to more volatility and changing dynamics in these voter bases.
+> The lower correlations for KMT and third-party candidates point to more volatility and changing dynamics in these voter bases.
 
