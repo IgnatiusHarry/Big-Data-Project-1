@@ -57,19 +57,51 @@ The results include aggregated vote counts, vote share percentages, Pearson corr
 
 _Correlation Analysis:_
 
-> The correlation between DPP vote shares in 2000 and 2024 was high, indicating consistent support in certain regions.
-
-> The correlation for KMT was lower, suggesting shifts in voter preferences or the impact of third-party candidates.
+> ![image](https://github.com/IgnatiusHarry/Taiwan-s-Political-Alignment-Analysis-/assets/169078557/08846893-3380-40ab-8342-0f105cec5509)
+> ![image](https://github.com/IgnatiusHarry/Taiwan-s-Political-Alignment-Analysis-/assets/169078557/da371889-6079-4d9d-91e7-61a0bbfb28c8)
 
 > The correlation for third-party candidates (Soong in 2000 and Ko in 2024) was low, reflecting different dynamics in each election.
 
 _Visualization:_
-
+![image](https://github.com/IgnatiusHarry/Taiwan-s-Political-Alignment-Analysis-/assets/169078557/b7e3a605-2782-420a-afa2-ca7573a8e372)
 > Scatter plots showed the relationship between vote shares in 2000 and 2024, highlighting regions with stable political preferences and those with significant changes.
 
+> #Analyzing DPP performance in the 2000 and 2024 presidential elections in Taiwan, 
+#The correlation is high in their vote share at the district levels.
+
+#Districts that predominantly voted for the DPP in 2000 also showed similar support in 2024. 
+
+#This indicates that the traditional blue-green political alignment in Taiwan has remained largely unchanged over the past 24 years.
+
+> #However, the correlation between KMT and third-party candidates in these elections is markedly low.
+
+#In 2000, Soong captured a significant portion of votes from traditional KMT supporters.
+
+#In 2024, Ko attempted a similar strategy but was less successful, only managing to place third.
+
+
+
 _Insights:_
+#This suggests that while the KMT's voter base has not drastically shifted since 2000, 
 
-> The high correlation for DPP suggests a strong and stable support base.
+#the correlation between Soong's 2000 vote share and the KMT's 2024 vote share is high, 
 
-> The lower correlations for KMT and third-party candidates point to more volatility and changing dynamics in these voter bases.
+#indicating some consistency but also potential volatility within the KMT's support base.
+
+![image](https://github.com/IgnatiusHarry/Taiwan-s-Political-Alignment-Analysis-/assets/169078557/c53eaad1-396a-42cf-901f-4eb07c8d4d8e)
+
+
+
+#It's also important to note that the correlation between the KMT's 2000 vote share 
+
+#and Ko Wen-je's 2024 vote share is very low. 
+
+#This highlights that in 2024 there was indeed some space for a third force to emerge, 
+
+#disrupting the traditional two-party dynamic, although not to a transformative extent.
+
+![image](https://github.com/IgnatiusHarry/Taiwan-s-Political-Alignment-Analysis-/assets/169078557/ad7ea57f-62f0-47cd-822e-a1c9ecd94416)
+
+
+
 
