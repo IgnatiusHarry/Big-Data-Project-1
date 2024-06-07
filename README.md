@@ -62,7 +62,7 @@ _Correlation Analysis:_
 
 > The correlation for third-party candidates (Soong in 2000 and Ko in 2024) was low, reflecting different dynamics in each election.
 
-_Visualization:_
+_Scatter Plots_
 ![image](https://github.com/IgnatiusHarry/Taiwan-s-Political-Alignment-Analysis-/assets/169078557/b7e3a605-2782-420a-afa2-ca7573a8e372)
 > Scatter plots showed the relationship between vote shares in 2000 and 2024, highlighting regions with stable political preferences and those with significant changes.
 
