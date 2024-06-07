@@ -64,28 +64,75 @@ cor_other <- cor(president_2000_2024$other_rate_2000, president_2000_2024$other_
 # Visualize correlation matrix
 corrplot(cor(president_2000_2024[, c("kmt_rate_2000", "kmt_rate_2024", "dpp_rate_2000", "dpp_rate_2024", "other_rate_2000", "other_rate_2024")]), method="circle")
 
+#other Cor visualization
+library(PerformanceAnalytics)
+chart.Correlation(president_2020_2024[, c(16:21)], histogram=TRUE, pch=19)
+
+# Visualize correlation matrix
+corrplot(cor(president_2000_2024[, c("kmt_rate_2000", "kmt_rate_2024", "dpp_rate_2000", "dpp_rate_2024", "other_rate_2000", "other_rate_2024")]), method="circle")
+
 # Scatter plots of vote share correlations
-ggplot(president_2000_2024, aes(x = dpp_rate_2000, y = dpp_rate_2024)) +
+plot1 <- ggplot(president_2000_2024, aes(x = dpp_rate_2000, y = dpp_rate_2024)) +
   geom_point() +
   geom_smooth(method = "lm") +
   ggtitle("DPP Vote Share Correlation (2000 vs 2024)") +
   xlab("DPP Vote Share 2000") +
   ylab("DPP Vote Share 2024")
 
-ggplot(president_2000_2024, aes(x = kmt_rate_2000, y = kmt_rate_2024)) +
+plot2 <- ggplot(president_2000_2024, aes(x = kmt_rate_2000, y = kmt_rate_2024)) +
   geom_point() +
   geom_smooth(method = "lm") +
   ggtitle("KMT Vote Share Correlation (2000 vs 2024)") +
   xlab("KMT Vote Share 2000") +
   ylab("KMT Vote Share 2024")
 
-ggplot(president_2000_2024, aes(x = other_rate_2000, y = other_rate_2024)) +
+plot3 <- ggplot(president_2000_2024, aes(x = other_rate_2000, y = other_rate_2024)) +
   geom_point() +
   geom_smooth(method = "lm") +
   ggtitle("Other Candidates Vote Share Correlation (2000 vs 2024)") +
   xlab("Other Candidates Vote Share 2000") +
   ylab("Other Candidates Vote Share 2024")
 
-# Analysis and Interpretation
-# The high correlation in DPP vote shares suggests stability in their support base.
-# The low correlation for KMT and other candidates indicates more volatility and changes in their support over the years.
+library(gridExtra)
+combined_plot <- grid.arrange(plot1, plot2, plot3, ncol = 1)
+#Analyzing DPP performance in the 2000 and 2024 presidential elections in Taiwan, 
+#we can observe a high correlation in their vote share at the district levels. 
+#Districts that predominantly voted for the DPP in 2000 also showed similar support in 2024. 
+#This indicates that the traditional blue-green political alignment in Taiwan has remained largely unchanged over the past 24 years.
+
+#However, the correlation between KMT and third-party candidates in these elections is markedly low. 
+#In 2000, Soong captured a significant portion of votes from traditional KMT supporters. 
+#In 2024, Ko attempted a similar strategy but was less successful, only managing to place third.
+
+
+
+# -------------------------------------------------------------------------
+
+#This suggests that while the KMT's voter base has not drastically shifted since 2000, 
+#the correlation between Soong's 2000 vote share and the KMT's 2024 vote share is high, 
+#indicating some consistency but also potential volatility within the KMT's support base.
+
+cor(president_2020_2024$other_rate_2000, president_2020_2024$kmt_rate_2024)
+
+ggplot(president_2020_2024, aes(x = other_rate_2000, y = kmt_rate_2024, label = paste0(county_e, district_e))) +
+  geom_point() +
+  geom_smooth(method = "lm") +
+  ggtitle("Figure 4: Soong's 2000 and KMT's 2024 percentage of vote shares") +
+  xlab("Soong's percentage of vote shares in 2000") + 
+  ylab("KMT's percentage of vote shares in 2024") +
+  geom_text(check_overlap = TRUE) +
+  geom_label()
+
+#It's also important to note that the correlation between the KMT's 2000 vote share 
+#and Ko Wen-je's 2024 vote share is very low. 
+#This highlights that in 2024 there was indeed some space for a third force to emerge, 
+#disrupting the traditional two-party dynamic, although not to a transformative extent.
+
+cor(president_2020_2024$kmt_rate_2000, president_2020_2024$other_rate_2024)
+
+ggplot(president_2020_2024, aes(x = kmt_rate_2000, y = other_rate_2024, label = paste0(county_e, district_e))) +
+  geom_point() +
+  geom_smooth(method = "lm") +
+  ggtitle("Figure 5：KMT's 2000 and Ko's 2024 percentage of vote shares") +
+  xlab("KMT's percentage of vote shares in 2000") + 
+  ylab("Ko's percentage of vote shares in 2024")
